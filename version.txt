@@ -1,3 +1,7 @@
 Versión 0.2
 Se ha añadido el PT1, despúes de configurar el servicio STMP de yahoo.
 En views se hace la petición de enviar correo y en settings están las credenciales para que e servidor de yahoo funcione. 
+
+Version 0.4
+Se ha añadido el PT4
+Mostramos los destinos modificando destinations.html y views.py
