@@ -1,0 +1,73 @@
+trigger:
+- master
+
+variables:
+  azureServiceConnectionId: 'BorjaAzureRM'
+  webAppName: 'Borja-ReleCloud'
+  vmImageName: 'ubuntu-latest'
+  environmentName: 'borja-relecloud-drhhfffnbbhcb0hf'
+  projectRoot: $(System.DefaultWorkingDirectory)
+  pythonVersion: '3.12'
+
+stages:
+- stage: Build
+  displayName: 'Build stage'
+  jobs:
+  - job: BuildJob
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - checkout: self
+      fetchDepth: 0
+
+    - task: UsePythonVersion@0
+      inputs:
+        versionSpec: '$(pythonVersion)'
+      displayName: 'Use Python $(pythonVersion)'
+
+    - script: |
+        python -m venv venv
+        source venv/bin/activate
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        python manage.py collectstatic --noinput
+        # python manage.py migrate  # <- Descomenta si quieres aplicar migraciones
+      workingDirectory: $(projectRoot)
+      displayName: 'Install and prepare Django'
+
+    - task: ArchiveFiles@2
+      displayName: 'Archive app'
+      inputs:
+        rootFolderOrFile: '$(projectRoot)'
+        includeRootFolder: false
+        archiveType: zip
+        archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+        replaceExistingArchive: true
+
+    - upload: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
+      artifact: drop
+
+- stage: Deploy
+  displayName: 'Deploy to Azure Web App'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - deployment: DeployJob
+    environment: $(environmentName)
+    pool:
+      vmImage: $(vmImageName)
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - task: UsePythonVersion@0
+            inputs:
+              versionSpec: '$(pythonVersion)'
+
+          - task: AzureWebApp@1
+            displayName: 'Deploy to Web App'
+            inputs:
+              azureSubscription: $(azureServiceConnectionId)
+              appType: webAppLinux
+              appName: $(webAppName)
+              package: $(Pipeline.Workspace)/drop/$(Build.BuildId).zip
