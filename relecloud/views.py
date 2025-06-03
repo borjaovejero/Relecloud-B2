@@ -25,7 +25,7 @@ from django.db.models import Count, Avg
 from django.db.models import Count
 
 def destinations(request):
-    show_all = request.GET.get('show_all') == '1'  # Verifica si se deben mostrar todos los destinos.
+    show_all = request.GET.get('show_all') == '1'  # Verifica si se deben mostrar todos los destinos
 
     # Anotar popularidad basada en el número de reseñas, pero con un nombre único
     annotated_destinations = models.Destination.objects.annotate(
