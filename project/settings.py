@@ -141,7 +141,7 @@ SECURE_CONTENT_TYPE_NOSNIFF = True  # Protege contra el tipo de contenido no seg
 # CSRF_COOKIE_SECURE = True  # Las cookies CSRF solo se envían a través de HTTPS
 # SESSION_COOKIE_SECURE = True  # Las cookies de sesión solo se envían a través de HTTPS
 
-# # Email settings
+# Email settings Usando el SMTP
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.mail.yahoo.com'
 EMAIL_PORT = 587
