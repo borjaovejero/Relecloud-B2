@@ -83,7 +83,7 @@ class InfoRequestCreate(SuccessMessageMixin, generic.CreateView):
     def form_valid(self, form):
         response = super().form_valid(form)
 
-        # Enviar correo al cliente
+        # Enviar correo al cliente. Usando mi yahoo
         name = form.cleaned_data['name']
         email = form.cleaned_data['email']
         cruise = form.cleaned_data['cruise']
