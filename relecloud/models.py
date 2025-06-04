@@ -28,7 +28,8 @@ class Destination(models.Model):
     
     def get_absolute_url(self):
         return reverse('destination_detail', kwargs={"pk": self.pk})
-    
+
+# Reviews destinations   
 def destination_detail(request, destination_id):
     destination = get_object_or_404(models.Destination, id=destination_id)
     reviews = destination.reviews.all()

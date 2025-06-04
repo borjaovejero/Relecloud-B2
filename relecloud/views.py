@@ -133,7 +133,8 @@ def destination_detail(request, destination_id):
             review.save()
     else:
         form = ReviewForm()
-
+    
+    # DestinationReview
     return render(request, 'destination_detail.html', {
         'destination': destination,
         'reviews': reviews,
