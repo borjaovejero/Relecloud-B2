@@ -54,7 +54,7 @@ def destination_detail(request, destination_id):
     })
 
     
-
+# Cruises
 class Cruise(models.Model):
     name = models.CharField(
         unique=True,

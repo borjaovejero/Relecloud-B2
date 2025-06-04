@@ -111,7 +111,8 @@ def cruise_detail(request, cruise_id):
             review.save()
     else:
         form = ReviewForm()
-
+        
+    # CruiseReview
     return render(request, 'cruise_detail.html', {
         'cruise': cruise,
         'reviews': reviews,
