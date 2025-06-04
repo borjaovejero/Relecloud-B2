@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
 from django.urls import reverse
 from relecloud.models import Destination
-
+#Test para validacion de vistas
 class DestinationViewTest(TestCase):
     def setUp(self):
         self.client = Client()
