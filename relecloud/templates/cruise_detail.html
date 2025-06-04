@@ -15,7 +15,7 @@ ReleCloud - {{ cruise }}
 <ul>
     {% for review in reviews %}
     <li>
-        <!-- Añadido ratings-->
+        <!-- Añadido ratings + listado-->
         <strong>Rating:</strong> {{ review.rating }}<br>
         <strong>Comment:</strong> {{ review.comment }}<br>
         <em>Submitted on {{ review.created_at }}</em>
