@@ -9,3 +9,7 @@ Mostramos los destinos modificando destinations.html y views.py
 Version 0.6
 Se ha añadido el PT3
 Se añaden las opiniones de usuarios en cruceros y destinos + ratings
+
+Version 0.8
+Se ha añadido el PT2
+Se ha agregado la funiconalidad de imagenes por destino (base.html el esqueleto)
