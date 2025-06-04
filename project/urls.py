@@ -25,5 +25,6 @@ urlpatterns = [
     path('', include('relecloud.urls'))
 ]
 if settings.DEBUG:
+    # Poner las URLs de archivos estáticos y de medios solo en modo DEBUG
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
