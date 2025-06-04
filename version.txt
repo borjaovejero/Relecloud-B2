@@ -13,3 +13,6 @@ Se añaden las opiniones de usuarios en cruceros y destinos + ratings
 Version 0.8
 Se ha añadido el PT2
 Se ha agregado la funiconalidad de imagenes por destino (base.html el esqueleto)
+
+Version 1.0
+Se han realizado pruebas sobre modelos y vistas
