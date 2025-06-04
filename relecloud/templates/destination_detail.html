@@ -15,6 +15,7 @@ ReleCloud - {{ destination }}
 <ul>
     {% for review in reviews %}
     <li>
+        <!-- Añadido ratings-->
         <strong>Rating:</strong> {{ review.rating }}<br>
         <strong>Comment:</strong> {{ review.comment }}<br>
         <em>Submitted on {{ review.created_at }}</em>
