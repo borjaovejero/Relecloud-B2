@@ -1,6 +1,6 @@
 from django.test import TestCase
 from relecloud.models import Destination, Cruise, InfoRequest, Review
-
+#Test para validacion de modelos
 class DestinationModelTest(TestCase):
     def test_create_destination(self):
         destination = Destination.objects.create(

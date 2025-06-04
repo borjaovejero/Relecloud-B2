@@ -10,10 +10,12 @@ ReleCloud - {{ cruise }}
 
 <p><strong>Average Rating:</strong> {{ average_rating|default:"No ratings yet" }}</p>
 
+<!-- Funcionalidad reviews-->
 <h2>Reviews:</h2>
 <ul>
     {% for review in reviews %}
     <li>
+        <!-- Añadido ratings + listado-->
         <strong>Rating:</strong> {{ review.rating }}<br>
         <strong>Comment:</strong> {{ review.comment }}<br>
         <em>Submitted on {{ review.created_at }}</em>

@@ -5,3 +5,14 @@ En views se hace la petición de enviar correo y en settings están las credenci
 Version 0.4
 Se ha añadido el PT4
 Mostramos los destinos modificando destinations.html y views.py
+
+Version 0.6
+Se ha añadido el PT3
+Se añaden las opiniones de usuarios en cruceros y destinos + ratings
+
+Version 0.8
+Se ha añadido el PT2
+Se ha agregado la funiconalidad de imagenes por destino (base.html el esqueleto)
+
+Version 1.0
+Se han realizado pruebas sobre modelos y vistas

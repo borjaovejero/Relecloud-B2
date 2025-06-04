@@ -40,9 +40,6 @@ def destinations(request):
         'show_all': show_all
     })
 
-
-
-
 class DestinationDetailView(generic.DetailView):
     template_name = 'destination_detail.html'
     model = models.Destination
@@ -112,6 +109,7 @@ def cruise_detail(request, cruise_id):
     else:
         form = ReviewForm()
 
+    # CruiseReview + rating
     return render(request, 'cruise_detail.html', {
         'cruise': cruise,
         'reviews': reviews,
@@ -133,7 +131,8 @@ def destination_detail(request, destination_id):
             review.save()
     else:
         form = ReviewForm()
-
+    
+    # DestinationReview + rating
     return render(request, 'destination_detail.html', {
         'destination': destination,
         'reviews': reviews,
