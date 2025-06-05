@@ -1,10 +1,8 @@
 trigger:
-  branches:
-    include:
-    - '*'
+  -master
 
 variables:
-  azureServiceConnectionId: 'BorjaAzureRM'
+  azureServiceConnectionId: 'BorjaAzureRM-Relecloud-B2'
   webAppName: 'Borja-ReleCloud'
   vmImageName: 'ubuntu-latest'
   environmentName: 'borja-relecloud-drhhfffnbbhcb0hf'
