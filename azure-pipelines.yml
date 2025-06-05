@@ -1,5 +1,7 @@
 trigger:
-- master
+  branches:
+    include:
+    - '*'
 
 variables:
   azureServiceConnectionId: 'BorjaAzureRM'
