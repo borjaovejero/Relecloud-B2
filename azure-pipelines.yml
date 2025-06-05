@@ -1,5 +1,5 @@
 trigger:
-  -master
+  - master
 
 variables:
   azureServiceConnectionId: 'BorjaAzureRM-Relecloud-B2'
